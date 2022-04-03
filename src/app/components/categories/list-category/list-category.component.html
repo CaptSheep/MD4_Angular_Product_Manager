@@ -1,0 +1,32 @@
+<div class="card">
+
+    <div class="card-header">
+        Category List
+    </div>
+    <div>
+        <a class="btn btn-success" routerLink="/category/create">Create Category</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Category ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col" colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let category of categories, index as i">
+                    <th scope="row">{{i + 1}}</th>
+                    <th scope="row">{{category.id}}</th>
+                    <td scope="row">{{category.name}}</td>
+                    <td>
+                        <button class="btn btn-primary" routerLink="/category/{{category.id}}/edit">Update</button>
+                        <button class="btn btn-danger" (click)="deleteCategory(i)">Delete</button>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
