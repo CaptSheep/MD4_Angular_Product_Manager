@@ -1,1 +1,36 @@
-<p>list-product works!</p>
+<div class="card">
+
+    <div class="card-header">
+        Product List
+    </div>
+    <div>
+        <a class="btn btn-success" routerLink="/product/create">Create Product</a>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">STT</th>
+                    <th scope="col">Product ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                    <th scope="col" colspan="2">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products, index as i">
+                    <th scope="row">{{i + 1}}</th>
+                    <th scope="row">{{product.id}}</th>
+                    <td scope="row">{{product.name}}</td>
+                    <td scope="row">{{product.description}}</td>
+                    <td scope="row">{{product.price}}</td>
+                    <td>
+                        <button class="btn btn-primary" routerLink="/product/{{product.id}}/edit">Update</button>
+                        <button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
